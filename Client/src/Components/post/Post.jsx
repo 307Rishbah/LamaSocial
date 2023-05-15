@@ -1,11 +1,12 @@
 import "./post.css";
-import { MoreVert } from "@material-ui/icons";
+
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { fetchUser } from "../../redux/userAction";
 import { dislikePost, likePost } from "../../redux/postAction";
 import { getFormattedDate } from "../../utilities/getFormatedDate";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 export default function Post({ post }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -60,7 +61,7 @@ export default function Post({ post }) {
             <span className="postDate">{getFormattedDate(post.createdAt)}</span>
           </div>
           <div className="postTopRight">
-            <MoreVert />
+            <MoreVertIcon />
           </div>
         </div>
         <div className="postCenter">

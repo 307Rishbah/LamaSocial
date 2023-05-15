@@ -1,6 +1,8 @@
 import "./profileRight.css";
 import { Link } from "react-router-dom";
-import { Add, Remove } from "@material-ui/icons";
+import AddIcon from "@mui/icons-material/Add";
+import RemoveIcon from "@mui/icons-material/Remove";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import {
@@ -52,7 +54,7 @@ export default function ProfileRight({ user }) {
         {user.username !== userInfo.username && (
           <button className="rightbarFollowButton" onClick={handleClick}>
             {followed ? "Unfollow" : "Follow"}
-            {followed ? <Remove /> : <Add />}
+            {followed ? <RemoveIcon /> : <AddIcon />}
           </button>
         )}
         <h4 className="rightbarTitle">User information</h4>

@@ -1,15 +1,13 @@
 import "./leftbar.css";
-import {
-  RssFeed,
-  Chat,
-  PlayCircleFilledOutlined,
-  Group,
-  Bookmark,
-  HelpOutline,
-  WorkOutline,
-  Event,
-  School,
-} from "@material-ui/icons";
+import RssFeedIcon from "@mui/icons-material/RssFeed";
+import ChatIcon from "@mui/icons-material/Chat";
+import PlayCircleFilledIcon from "@mui/icons-material/PlayCircleFilled";
+import GroupIcon from "@mui/icons-material/Group";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import EventIcon from "@mui/icons-material/Event";
+import SchoolIcon from "@mui/icons-material/School";
+import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 
 import CloseFriend from "../closeFriend/CloseFriend";
 import { Users } from "../../dummyData";
@@ -20,39 +18,39 @@ export default function Leftbar() {
       <div className="leftbarWrapper">
         <ul className="leftbarList">
           <li className="leftbarListItem">
-            <RssFeed className="leftbarIcon" />
+            <RssFeedIcon className="leftbarIcon" />
             <span className="leftbarListItemtext">Feed</span>
           </li>
           <li className="leftbarListItem">
-            <Chat className="leftbarIcon" />
+            <ChatIcon className="leftbarIcon" />
             <span className="leftbarListItemtext">Chats</span>
           </li>
           <li className="leftbarListItem">
-            <PlayCircleFilledOutlined className="leftbarIcon" />
+            <PlayCircleFilledIcon className="leftbarIcon" />
             <span className="leftbarListItemtext">Videos</span>
           </li>
           <li className="leftbarListItem">
-            <Group className="leftbarIcon" />
+            <GroupIcon className="leftbarIcon" />
             <span className="leftbarListItemtext">Groups</span>
           </li>
           <li className="leftbarListItem">
-            <Bookmark className="leftbarIcon" />
+            <BookmarkIcon className="leftbarIcon" />
             <span className="leftbarListItemtext">Bookmarks</span>
           </li>
           <li className="leftbarListItem">
-            <HelpOutline className="leftbarIcon" />
+            <HelpOutlineIcon className="leftbarIcon" />
             <span className="leftbarListItemtext">Questions</span>
           </li>
           <li className="leftbarListItem">
-            <WorkOutline className="leftbarIcon" />
+            <WorkOutlineIcon className="leftbarIcon" />
             <span className="leftbarListItemtext">Jobs</span>
           </li>
           <li className="leftbarListItem">
-            <Event className="leftbarIcon" />
+            <EventIcon className="leftbarIcon" />
             <span className="leftbarListItemtext">Events</span>
           </li>
           <li className="leftbarListItem">
-            <School className="leftbarIcon" />
+            <SchoolIcon className="leftbarIcon" />
             <span className="leftbarListItemtext">Courses</span>
           </li>
         </ul>

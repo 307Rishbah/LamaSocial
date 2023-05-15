@@ -1,7 +1,10 @@
 import "./topbar.css";
-import { Search, Person, Chat, Notifications } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import SearchIcon from "@mui/icons-material/Search";
+import PersonIcon from "@mui/icons-material/Person";
+import ChatIcon from "@mui/icons-material/Chat";
+import NotificationsIcon from "@mui/icons-material/Notifications";
 
 export default function Topbar() {
   const { userInfo } = useSelector((state) => state.auth);
@@ -17,7 +20,7 @@ export default function Topbar() {
       </div>
       <div className="topbarCenter">
         <div className="searchbar">
-          <Search className="searchIcon" />
+          <SearchIcon className="searchIcon" />
           <input
             placeholder="Search for friend, post or video"
             className="searchInput"
@@ -31,15 +34,15 @@ export default function Topbar() {
         </div>
         <div className="topbarIcons">
           <div className="topbarIconItem">
-            <Person />
+            <PersonIcon />
             <span className="topbarIconBadge">1</span>
           </div>
           <div className="topbarIconItem">
-            <Chat />
+            <ChatIcon />
             <span className="topbarIconBadge">2</span>
           </div>
           <div className="topbarIconItem">
-            <Notifications />
+            <NotificationsIcon />
             <span className="topbarIconBadge">1</span>
           </div>
         </div>
@@ -58,7 +61,3 @@ export default function Topbar() {
     </div>
   );
 }
-
-// const currentUser = useSelector((state) =>
-//   state.user.users.find((user) => user._id === userInfo._id)
-// );
