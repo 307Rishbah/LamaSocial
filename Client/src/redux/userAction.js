@@ -1,13 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { base_url } from "../utilities/utilities";
 
 export const fetchUser = createAsyncThunk(
   "user/fetchUser",
   async (userId, { rejectWithValue }) => {
     try {
-      const res = await axios.get(
-        `http://localhost:8080/api/users?userId=${userId}`
-      );
+      const res = await axios.get(`${base_url}users?userId=${userId}`);
       return res.data;
     } catch (error) {
       if (error.resposne && error.response.data.message) {
@@ -23,10 +22,9 @@ export const followUser = createAsyncThunk(
   "follow",
   async ({ userId, otherUserId }, { rejectWithValue }) => {
     try {
-      const res = await axios.put(
-        `http://localhost:8080/api/users/${otherUserId}/follow`,
-        { userId }
-      );
+      const res = await axios.put(`${base_url}users/${otherUserId}/follow`, {
+        userId,
+      });
 
       return res.data;
     } catch (error) {
@@ -43,10 +41,9 @@ export const unfollowUser = createAsyncThunk(
   "unfollow",
   async ({ userId, otherUserId }, { rejectWithValue }) => {
     try {
-      const res = await axios.put(
-        `http://localhost:8080/api/users/${otherUserId}/unfollow`,
-        { userId }
-      );
+      const res = await axios.put(`${base_url}users/${otherUserId}/unfollow`, {
+        userId,
+      });
       return res.data;
     } catch (error) {
       if (error.response && error.response.data.message) {
@@ -62,9 +59,7 @@ export const fetchAllFriends = createAsyncThunk(
   "user/fetchFriends",
   async (userId, { rejectWithValue }) => {
     try {
-      const res = await axios.get(
-        `http://localhost:8080/api/users/friends/${userId}`
-      );
+      const res = await axios.get(`${base_url}users/friends/${userId}`);
       return res.data;
     } catch (error) {
       if (error.resposne && error.response.data.message) {

@@ -1,11 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
-const url = "http://localhost:8080/api/posts/";
+import { base_url } from "../utilities/utilities";
 
 export const fetchAllPost = createAsyncThunk("posts/fetchAllPost", async () => {
   try {
-    const res = await axios.get("http://localhost:8080/api/posts/");
+    const res = await axios.get(`${base_url}posts/`);
     return res.data.sort((p1, p2) => {
       return new Date(p2.createdAt) - new Date(p1.createdAt);
     });
@@ -22,7 +21,7 @@ export const fetchTimeline = createAsyncThunk(
   "posts/fetchTimeline",
   async (userId, { rejectWithValue }) => {
     try {
-      const res = await axios.get(`${url}timeline/` + userId);
+      const res = await axios.get(`${base_url}posts/timeline` + userId);
       return res.data;
     } catch (error) {
       if (error.response && error.response.data.message) {
@@ -38,7 +37,7 @@ export const fetchUserProfile = createAsyncThunk(
   "posts/userProfile",
   async (username, { rejectWithValue }) => {
     try {
-      const res = await axios.get(`${url}/profile/` + username);
+      const res = await axios.get(`${base_url}/profile/` + username);
       return res.data;
     } catch (error) {
       if (error.response && error.response.data.message) {
@@ -54,7 +53,7 @@ export const uploadPost = createAsyncThunk(
   "posts/upload post",
   async (post, { rejectWithValue }) => {
     try {
-      const res = await axios.post("http://localhost:8080/api/posts/", post);
+      const res = await axios.post(`${base_url}/posts/`, post);
       return res.data;
     } catch (error) {
       if (error.response && error.response.data.message) {
@@ -70,10 +69,9 @@ export const likePost = createAsyncThunk(
   "posts/likePost",
   async ({ postId, userId }, { rejectWithValue }) => {
     try {
-      const res = await axios.put(
-        `http://localhost:8080/api/posts/like/${postId}`,
-        { userId }
-      );
+      const res = await axios.put(`${base_url}posts/like/${postId}`, {
+        userId,
+      });
       return res.data;
     } catch (error) {
       if (error.response && error.response.data.message) {
@@ -89,10 +87,9 @@ export const dislikePost = createAsyncThunk(
   "posts/dislike",
   async ({ postId, userId }, { rejectWithValue }) => {
     try {
-      const res = await axios.put(
-        `http://localhost:8080/api/posts/dislike/${postId}`,
-        { userId }
-      );
+      const res = await axios.put(`${base_url}posts/dislike/${postId}`, {
+        userId,
+      });
       return res.data;
     } catch (error) {
       if (error.response && error.response.data.message) {

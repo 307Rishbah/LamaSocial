@@ -1,3 +1,5 @@
+export const base_url = "https://lama-social.vercel.app/api/";
+
 export const getFormattedDate = (postDate) => {
   const dateOfPost = new Date(postDate);
   const currentTime = new Date();
