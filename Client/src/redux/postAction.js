@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { base_url } from "../utilities/utilities";
+
+const base_url = "https://lama-social.vercel.app/api/";
 
 export const fetchAllPost = createAsyncThunk("posts/fetchAllPost", async () => {
   try {

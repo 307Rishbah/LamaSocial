@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { base_url } from "../utilities/utilities";
+
+const base_url = "https://lama-social.vercel.app/api/";
 
 export const registerUser = createAsyncThunk(
   "auth/register",
