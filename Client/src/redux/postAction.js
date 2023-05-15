@@ -38,7 +38,7 @@ export const fetchUserProfile = createAsyncThunk(
   "posts/userProfile",
   async (username, { rejectWithValue }) => {
     try {
-      const res = await axios.get(`${base_url}/profile/` + username);
+      const res = await axios.get(`${base_url}profile/` + username);
       return res.data;
     } catch (error) {
       if (error.response && error.response.data.message) {
@@ -54,7 +54,7 @@ export const uploadPost = createAsyncThunk(
   "posts/upload post",
   async (post, { rejectWithValue }) => {
     try {
-      const res = await axios.post(`${base_url}/posts/`, post);
+      const res = await axios.post(`${base_url}posts/`, post);
       return res.data;
     } catch (error) {
       if (error.response && error.response.data.message) {

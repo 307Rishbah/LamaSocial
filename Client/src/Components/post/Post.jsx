@@ -1,5 +1,4 @@
 import "./post.css";
-
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -7,9 +6,9 @@ import { fetchUser } from "../../redux/userAction";
 import { dislikePost, likePost } from "../../redux/postAction";
 import { getFormattedDate } from "../../utilities/getFormatedDate";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { img_url } from "../../utilities/ImgUrl";
 
 export default function Post({ post }) {
-  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const { userInfo } = useSelector((state) => state.auth);
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(post.likes.includes(userInfo?._id));
@@ -51,7 +50,7 @@ export default function Post({ post }) {
                 src={
                   user.profilePicture
                     ? user.profilePicture
-                    : PF + "person/noAvatar.png"
+                    : img_url + "person/noAvatar.png"
                 }
                 alt=""
                 className="postProfileImg"
@@ -71,13 +70,13 @@ export default function Post({ post }) {
         <div className="postBottom">
           <div className="postBottomLeft">
             <img
-              src={`${PF}like.png`}
+              src={`${img_url}like.png`}
               onClick={likeHandler}
               className="likeIcon"
               alt=""
             />
             <img
-              src={`${PF}heart.png`}
+              src={`${img_url}heart.png`}
               onClick={likeHandler}
               className="likeIcon"
               alt=""
